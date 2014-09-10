@@ -1,0 +1,436 @@
+@import "bower_components/bootstrap/less/bootstrap.less";
+//@import "bower_components/bootstrap/less/theme.less";
+@import "bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: "bower_components/font-awesome/fonts";
+
+/* Component LESS */
+
+@import "partial/browser/browser.less";
+@import "partial/login/login.less";
+@import "partial/new-node/new-node.less";
+@import "partial/new-page/new-page.less";
+@import "partial\edit-page\edit-page.less";
+@import "partial\edit-menu\edit-menu.less";
+/* Add Component LESS Above */
+
+/* Required for Angular UI Bootstrap */
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+/* Personal preference for BS modal.  The LESS below makes the backdrop white and
+   causes the modal to fade in rather than slide in. */
+//@modal-backdrop-bg: white;
+//.modal {
+//	&.fade {
+//		.transition(opacity .3s);
+//	}
+//	&.fade .modal-dialog {
+//		.translate(0,0);
+//	}
+//}
+
+body{
+
+  font-family: "proxima-nova",sans-serif;
+
+}
+
+.btn{
+
+  font-size:12px;
+
+}
+
+.small-btn:hover{
+
+  background-color: #fff !important;
+
+}
+
+.form-control{
+
+  border:1px solid #eee !important;
+
+}
+
+.btn{
+
+    border:0px !important;
+    border-bottom:1px solid #ccc !important;
+    border-radius: 3px;
+
+
+}
+
+.modal-dialog{
+
+  .modal-content {
+
+    background-color: #f6f6f6 !important;
+    border-radius: 3px;
+  }
+
+}
+
+
+.zy-node-highlight{
+
+    background-color: #333 !important;
+    width:395px !important;
+
+
+}
+
+
+.zy-folder-item{
+
+  width:150px;
+  margin-top:3px;
+
+}
+
+.zy-icon{
+
+  padding:5px;
+  background-color: #ccc;
+  border-radius: 3px;
+  margin-left:3px;
+
+}
+
+.ce-node-add{
+
+  position: absolute !important;
+  right:5px;
+  top:22px;
+  color:#999;
+
+}
+
+.ce-node-delete{
+
+  position: absolute !important;
+  top:5px;
+  left:5px;
+  font-size:10px;
+  color:#777;
+  
+}
+
+.page-modal-window .modal-dialog {
+  width: 900px;
+}
+
+.ce-bottom-add{
+
+  padding:1px 3px 1px 3px;
+  background-color: #222;
+  color:#999;
+  border-radius: 3px;
+
+}
+
+.ce-level-options{
+
+  position: absolute;
+  width:100%;
+  text-align: center;
+  bottom:-27px;
+  padding-bottom:1px;
+
+}
+
+.zy-node:hover{
+
+  background-color: #444;
+
+}
+
+.zy-node{
+
+  width:195px;
+  position: relative;
+  padding:8px;
+  background-color: #222;
+  margin:0px 0px 3px 0px;
+  overflow: show;
+  height:66px;
+  cursor:default;
+
+  -webkit-transition:width 0.1s;
+
+  .btn{
+
+    line-height: normal;
+
+  }
+
+  h4{
+
+    color:#ccc;
+    line-height:30px;
+    font-weight: 100;
+  }
+
+}
+
+.zy-node-level{
+
+  position:absolute;
+  overflow: visible;
+  width:190px;
+
+  -webkit-transition:top 0.1s;
+
+}
+
+.ui-sortable-placeholder{
+
+  background-color:#333 !important;
+
+
+
+}
+
+.sortable-placeholder{
+
+  width:195px;
+  height:66px;
+  background-color:#999 !important;
+  margin: 0px 0px 3px 0px;
+  border-radius: 10px;
+  border:3px solid #ccc;
+
+
+}
+
+.zy-title{
+
+  padding:15px;
+  background-color: rgba(255,255,255,0.5);
+  float:left;
+
+
+  h1{
+    padding:0px;
+    margin:5px 10px;
+  }
+
+}
+
+.icon{
+
+  font-size:20px;
+
+}
+
+/* Thumbnails
+*/
+
+.thumbnail{
+
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 0px 10px #ddd;
+  background-color: #f9f9f9;
+  padding:5px;
+  overflow: hidden;
+  margin-bottom:0px;
+  cursor:default;
+  clear:both;
+
+}
+
+.thumbnail{
+
+  .zy-filename{
+
+    font-size:15px;
+    font-weight: 100;
+    margin-right:4px;
+    text-shadow:1px 1px 0px #fff;
+
+  }
+
+}
+
+.thumbnail-active{
+
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 0px 10px #ddd;
+  background-color: #ddefbd;
+
+}
+
+.zy-thumb-container{
+
+  text-align: center;
+  width:130px;
+  height:110px;
+
+}
+
+.zy-thumb-icon{
+  font-size:20px;
+  color:#666;
+  text-shadow:0px 0px 6px #fff;
+  position:absolute;
+  right:20px;
+  padding:3px;
+}
+
+.zy-thumb-icon:hover{
+  color:#fff;
+  text-shadow:0px 0px 6px #333;
+}
+
+.zy-thumb-icon:active{
+  text-shadow:0px 0px 6px #666;
+  color:#eee;
+}
+
+.thumbnail:hover{
+
+  border-bottom: 2px solid #aaa;
+  box-shadow: 0px 0px 15px #bbb;
+
+}
+
+/**
+*
+*/
+
+
+html,body{
+  position: relative;
+  height: 100%;
+}
+
+.login-container{
+  position: relative;
+  width: 300px;
+  margin: 80px auto;
+  padding: 20px 40px 40px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+#output{
+  position: absolute;
+  width: 300px;
+  top: -75px;
+  left: 0;
+  color: #fff;
+}
+
+#output.alert-success{
+  background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+  background: rgb(228, 105, 105);
+}
+
+
+.login-container::before,.login-container::after{
+  content: "";
+  position: absolute;
+  width: 100%;height: 100%;
+  top: 3.5px;left: 0;
+  background: #fff;
+  z-index: -1;
+  -webkit-transform: rotateZ(4deg);
+  -moz-transform: rotateZ(4deg);
+  -ms-transform: rotateZ(4deg);
+  border: 1px solid #ccc;
+
+}
+
+.login-container::after{
+  top: 5px;
+  z-index: -2;
+  -webkit-transform: rotateZ(-2deg);
+  -moz-transform: rotateZ(-2deg);
+  -ms-transform: rotateZ(-2deg);
+
+}
+
+.avatar{
+  width: 100px;height: 100px;
+  margin: 10px auto 30px;
+  border-radius: 100%;
+  border: 2px solid #aaa;
+  background-size: cover;
+}
+
+.form-box input{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  height:40px;
+  border: 1px solid #ccc;;
+  background: #fafafa;
+  transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+  outline: 0;
+  background: #eee;
+}
+
+.form-box input[type="text"]{
+  border-radius: 5px 5px 0 0;
+  text-transform: lowercase;
+}
+
+.form-box input[type="password"]{
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+}
+
+.form-box button.login{
+  margin-top:15px;
+  padding: 10px 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}

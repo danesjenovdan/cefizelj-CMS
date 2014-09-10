@@ -1,0 +1,31 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edit menu</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-group">
+
+            <label for="node-label">Menu Name</label>
+            <input class="form-control" id="node-label" ng-model="item.name">
+
+            <br/>
+
+            <label for="node-label">Change type</label>
+            <select class="form-control" style="width:100px;" ng-model="item.type">
+                <option value="menu">
+                    Menu
+                </option>
+                <option value="page">
+                    Page
+                </option>
+            </select>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger pull-left" ng-click="deleteNode()">Delete</button>
+        <button class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="saveNode()">Save</button>
+    </div>
+</div>

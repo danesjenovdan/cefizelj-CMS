@@ -1,0 +1,36 @@
+{
+  "name": "bunker-cms",
+  "version": "0.0.0",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.0",
+    "underscore": "~1.5",
+    "bootstrap": "~3.1",
+    "angular": "~1.2",
+    "angular-ui-router": "~0.2",
+    "angular-animate": "~1.2",
+    "angular-resource": "~1.2",
+    "angular-cookies": "~1.2",
+    "angular-mocks": "~1.2",
+    "angular-ui-utils": "~0.1",
+    "angular-bootstrap": "~0.10",
+    "moment": "~2.5",
+    "less.js": "~1.6",
+    "font-awesome": "~4.0",
+    "angular-block-ui": "~0.0.8",
+    "angular-ui-select2": "~0.0.5",
+    "restangular": "~1.4.0",
+    "angular-loading-bar": "~0.4.2",
+    "angular-dragdrop": "~1.0.7",
+    "ng-ckeditor": "~0.2.1",
+    "ckeditor": "~4.4.3",
+    "angular-ui-sortable": "~0.12.8",
+    "jqueryui": "~1.11.0",
+    "notifyjs": "~0.3.2"
+  }
+}

@@ -1,0 +1,76 @@
+<div class="col-md-12">
+<br/>
+
+    <script type="text/ng-template" id="items_renderer.html" >
+
+            <div class="zy-node" ng-class="item.visible?'zy-node-highlight':''" ng-click="nodeClick(item, this)" title="{{item.name}}">
+
+                <h4 class="text-center" style="font-size: 12px;">{{item.name || 'Ni imena' | trunc:false:15}}</h4>
+                <div class="btn-group ce-node-add">
+                    <div  class="icon icon-plus2 pull-right dropdown-toggle" data-toggle="dropdown" ng-if="item.type == 'menu'"></div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" ng-click="newMenu(item._id, item, this, false)">Menu</a></li>
+                            <li><a href="#" ng-click="newPage(item._id, item, this, false)">Page</a></li>
+                        </ul>
+                </div>
+
+                <div class="icon icon-pencil pull-right ce-node-delete"  ng-click="editNode($event, item, list)"></div>
+
+            </div><!-- end node -->
+
+            <!-- margin-top:-{{(this.$parent.$parent.item.items.length*66)/2-33}}px -->
+            <div class="zy-node-level" ui-sortable="sortableOptions" style="left:200px; top:0px;"  ng-model="item.items" ng-if="item.visible" level >
+                <div ng-repeat="item in item.items track by item._id" id="{{item._id}}" ng-include="'items_renderer.html'" style="position:relative;">
+
+                </div>
+
+                <div class="ce-level-options">
+                    <div class="btn-group">
+                        <div class="icon icon-plus2 dropdown-toggle ce-bottom-add"  data-toggle="dropdown">
+
+                        </div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" ng-click="newMenu(item._id, item, this, false, false)">Menu</a></li>
+                            <li><a href="#" ng-click="newPage(item._id, item, this, false, false)">Page</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+    </script>
+
+    <div class="zy-node-level" ui-sortable="sortableOptions" ng-model="list">
+        <div ng-repeat="item in list track by item._id" id="{{item._id}}" ng-include="'items_renderer.html'" style="position:relative;">
+
+        </div>
+        <div class="ce-level-options">
+            <div class="btn-group">
+                <div class="icon icon-plus2 dropdown-toggle ce-bottom-add"  data-toggle="dropdown">
+
+                </div>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" ng-click="newMenu(item.parentId, item, this, true, false)">Menu</a></li>
+                    <li><a href="#" ng-click="newPage(item.parentId, item, this, true, false)">Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="ce-level-options" ng-if="empty">
+        <div class="btn-group">
+            <div class="icon icon-plus2 dropdown-toggle"  data-toggle="dropdown">
+            </div>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" ng-click="newMenu(item.parentId, item, this, true, true)">Menu</a></li>
+                <li><a href="#" ng-click="newPage(item.parentId, item, this, true, true)">Page</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>

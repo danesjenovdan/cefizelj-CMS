@@ -1,0 +1,89 @@
+<div>
+
+    <script type="text/ng-template" id="link-display.html" >
+
+        <div class="btn btn-lg btn-default" style="overflow: auto; padding-right: 10px;" title="{{link.url}}">
+            <div class="pull-left">{{link.name}}</div>
+            <div class="icon-pencil3 pull-left small-btn" ng-click="linkNameEdit($event, link)" style="margin-top:0px; margin-left:10px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+            <div class="icon-hyperlink pull-left small-btn" ng-click="linkUrlEdit($event, link)" style="margin-top:0px; margin-left:10px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+            <div class="icon-cross3 pull-left small-btn" ng-click="deleteLink($event, $index)"  style="margin-top:0px; margin-left:10px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+        </div>
+
+    </script>
+
+    <script type="text/ng-template" id="link-edit-name.html" >
+        <input class="btn btn-lg btn-default" placeholder="enter link name..." style="cursor: text !important;height: 39px; text-align: left;  padding-right: 50px;" ng-model="link.name"  type="text" value="{{link.name}}">
+        <div class="icon-checkmark small-btn"  ng-click="saveLink($event, link)" style="position:absolute; top:8px; right:27px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+        <div class="icon-cross small-btn"  ng-click="closeEdit($event, link)"  style="position:absolute; top:8px; right:5px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+
+    </script>
+
+    <script type="text/ng-template" id="link-edit-url.html" >
+        <div class="icon-checkmark small-btn"  ng-click="saveLink($event, link)"  style="position:absolute; top:8px; right:27px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+        <div class="icon-cross small-btn"  ng-click="closeEdit($event, link)" style="position:absolute; top:8px; right:5px; padding:3px; background-color: #eee; border-radius: 2px;"> </div>
+
+        <input class="btn btn-lg btn-default" placeholder="enter URL..." autofocus style="height: 39px;cursor: text !important; text-align: left; padding-right: 50px;" ng-model="link.url" type="text" value="{{link.url}}">
+
+    </script>
+
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Setup page</h4>
+    </div>
+    <div class="modal-body" style="overflow:auto !important;">
+        <label for="title">Title</label>
+        <input id="title" class="form-control" ng-model="page.name">
+        <br/>
+        <label for="content">Content</label>
+        <textarea id="content" ckeditor="editorOptions" ng-model="page.content"></textarea>
+
+
+        <div class="col-sm-12" style="overflow:visible">
+            <hr/>
+            <div class="pull-left">
+                <h4 class="inline">Links</h4>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12" style="overflow:visible">
+
+            <div class="pull-left" style="margin-right:4px; position:relative;" ng-repeat="link in links" ng-switch on="link.edit">
+                <div ng-switch-when="name">
+                    <div ng-include="'link-edit-name.html'"></div>
+                </div>
+                <div ng-switch-when="url">
+                    <div ng-include="'link-edit-url.html'"></div>
+                </div>
+                <div ng-switch-when="false">
+                    <div ng-include="'link-display.html'"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12" style="overflow:visible; margin-top:5px;">
+            <div class="btn" style="color:#999;font-size:12px;" ng-click="addLink()">Add a link...</div>
+            <br/><br/>
+        </div>
+
+
+
+        <label for="type-label">Change type</label>
+        <select id="type-label" class="form-control" style="width:100px;" ng-model="page.type">
+            <option value="menu">
+                Menu
+            </option>
+            <option value="page">
+                Page
+            </option>
+        </select>
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger pull-left" ng-click="deleteNode()">Delete</button>
+        <button class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="saveNode()">Save</button>
+    </div>
+</div>
