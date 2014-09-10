@@ -19,6 +19,7 @@ Mac:
 
 ### Testing
 Opens testing with livereload for live debugging on http://127.0.0.1:9001
+
     $ grunt serve
 
 ### Build
