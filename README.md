@@ -8,19 +8,19 @@ Cefizelj CMS frontend
 
 ## Bower
 
-$ bower install
+    $ bower install
 
 Mac:
 
-$ sudo bower install --allow-root
+    $ sudo bower install --allow-root
 
 ## Build and testing
 
 
 ### Testing
-$ grunt serve
+    $ grunt serve
 
 ### Build
-$ grunt build
+    $ grunt build
 
 Some issues with ckeditor so the <script> to import the ckeditor needs to be added to the compiled index.html in the /dist folder
