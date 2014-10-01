@@ -1,26 +1,50 @@
-angular.module('bunkerCms').controller('EditPageCtrl',function($scope, $modalInstance, NodeService, item){
+angular.module('bunkerCms').controller('EditPageCtrl', function ($scope, $modalInstance, NodeService, item) {
 
     $scope.page = item;
     $scope.links = $scope.page.links;
 
-    for(var i=0;i<$scope.links.length;i++){
+    for (var i = 0; i < $scope.links.length; i++) {
         $scope.links[i].edit = false;
     }
 
     // setup editor options
     $scope.editorOptions = {
-        language: 'slo',
+        language: 'sl',
         uiColor: '#FFFFFF',
-        height:200,
-        color:'#fff',
-        contentsCss : 'body{background:#222; color:#eee; font-family:Arial}'
+        height: 200,
+        color: '#fff',
+        contentsCss: 'body{background:#222; color:#eee; font-family:Arial}',
+        format_tags: 'h3;p',
+        toolbar: [
+            {
+                name: 'Formatting',
+                items: ['Format']
+            },
+            {
+                name: 'basicstyles',
+                items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']
+            },
+            {
+                name: 'paragraph',
+                items: ['BulletedList', 'NumberedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight']
+            },
+            {
+                name: 'links',
+                items: ['Link', 'Unlink', '-', 'Source']
+            },
+            '/',
+            {
+                name: 'clipboard',
+                items: ['Cut', 'Copy', 'PasteText', '-', 'Undo', 'Redo']
+            }
+        ]
     };
 
-    $scope.deleteNode = function(){
+    $scope.deleteNode = function () {
 
         console.log(item._id);
         $modalInstance.dismiss('cancel');
-        NodeService.deleteNode(item._id, function(){
+        NodeService.deleteNode(item._id, function () {
 
             console.log('Deleted?');
 
@@ -28,18 +52,18 @@ angular.module('bunkerCms').controller('EditPageCtrl',function($scope, $modalIns
 
     };
 
-    $scope.saveNode = function(){
+    $scope.saveNode = function () {
 
         $scope.page.links = $scope.links;
         $modalInstance.dismiss('cancel');
-        NodeService.saveNode($scope.page,function(res){
+        NodeService.saveNode($scope.page, function (res) {
 
 
-            setTimeout(function(){
+            setTimeout(function () {
 
                 console.log(NodeService.data.tree);
 
-            },100);
+            }, 100);
 
             //  $rootScope.$apply();
 
@@ -50,7 +74,7 @@ angular.module('bunkerCms').controller('EditPageCtrl',function($scope, $modalIns
 
     var selected = {};
 
-    $scope.linkNameEdit = function(evt, link){
+    $scope.linkNameEdit = function (evt, link) {
 
         angular.copy(link, selected);
 
@@ -59,7 +83,7 @@ angular.module('bunkerCms').controller('EditPageCtrl',function($scope, $modalIns
 
     };
 
-    $scope.linkUrlEdit = function(evt, link){
+    $scope.linkUrlEdit = function (evt, link) {
 
         angular.copy(link, selected);
 
@@ -69,44 +93,44 @@ angular.module('bunkerCms').controller('EditPageCtrl',function($scope, $modalIns
 
     };
 
-    $scope.closeEdit = function(evt, link){
+    $scope.closeEdit = function (evt, link) {
 
         selected.edit = false;
         angular.copy(selected, link);
 
     };
 
-    $scope.addLink = function(){
+    $scope.addLink = function () {
 
         selected = {};
 
         $scope.links.push({
-            name:'',
-            url:'',
-            edit:'url',
-            focus:true,
-            new:true
+            name: '',
+            url: '',
+            edit: 'url',
+            focus: true,
+            new: true
         });
 
     };
 
-    $scope.deleteLink = function(evt, index){
+    $scope.deleteLink = function (evt, index) {
 
         evt.stopPropagation();
 
         console.log(index);
-        $scope.links.splice(index,1);
+        $scope.links.splice(index, 1);
 
     };
 
-    $scope.saveLink = function(evt, link){
+    $scope.saveLink = function (evt, link) {
 
         evt.stopPropagation();
 
-        if(link.new){
+        if (link.new) {
             link.edit = 'name';
             link.new = false;
-        }else{
+        } else {
             console.log('click');
             link.edit = false;
         }

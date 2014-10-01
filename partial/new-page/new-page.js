@@ -1,12 +1,37 @@
 angular.module('bunkerCms').controller('NewPageCtrl',function($scope, $modalInstance, NodeService, callback, id, items){
 
     // setup editor options
+    // setup editor options
     $scope.editorOptions = {
-        language: 'slo',
+        language: 'sl',
         uiColor: '#FFFFFF',
-        height:200,
-        color:'#fff',
-        contentsCss : 'body{background:#222; color:#eee; font-family:Arial}'
+        height: 200,
+        color: '#fff',
+        contentsCss: 'body{background:#222; color:#eee; font-family:Arial}',
+        format_tags: 'h3;p',
+        toolbar: [
+            {
+                name: 'Formatting',
+                items: ['Format']
+            },
+            {
+                name: 'basicstyles',
+                items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']
+            },
+            {
+                name: 'paragraph',
+                items: ['BulletedList', 'NumberedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight']
+            },
+            {
+                name: 'links',
+                items: ['Link', 'Unlink', '-', 'Source']
+            },
+            '/',
+            {
+                name: 'clipboard',
+                items: ['Cut', 'Copy', 'PasteText', '-', 'Undo', 'Redo']
+            }
+        ]
     };
 
     $scope.page = {
